@@ -4,6 +4,8 @@ use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\RajaongkirController;
 use App\Http\Controllers\RegisterController;
 
 /*
@@ -30,6 +32,7 @@ Route::post('register-post',[UserController::class,'store'])->name('register-pos
 Route::put('/update/{id}',[UserController::class,'update'])->name('update');
 Route::post('authentication',[LoginController::class,'authentication'])->name('authentication');
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');
+Route::get('/ongkir',[RajaongkirController::class,'index'])->name('ongkir');
 
 // Dashboard
 Route::middleware('auth')->group(function(){
@@ -37,4 +40,5 @@ Route::middleware('auth')->group(function(){
     Route::delete('/delete/{id}',[UserController::class,'delete'])->name('delete');
     Route::get('add',[UserController::class,'add'])->name('add');
     Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
+    Route::resource('member', MemberController::class);
 });

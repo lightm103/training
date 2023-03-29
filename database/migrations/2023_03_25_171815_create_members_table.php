@@ -32,7 +32,7 @@ return new class extends Migration
             $table->integer('view_count');
             $table->integer('bookmark_count');
             $table->integer('donate_count');
-            $table->boolean('is_active');
+            $table->boolean('is_active')->nullable();
             $table->timestamps();
         });
     }

@@ -1,4 +1,4 @@
-<!<!DOCTYPE html>
+<!DOCTYPE html>
 <!--
 Author: Keenthemes
 Product Name: Metronic - Bootstrap 5 HTML, VueJS, React, Angular & Laravel Admin Dashboard Theme
@@ -39,7 +39,7 @@ License: For each use you must have a valid license purchased only from above li
     <link href="assets/plugins/custom/vis-timeline/vis-timeline.bundle.css" rel="stylesheet" type="text/css" />
     <!--end::Page Vendor Stylesheets-->
     <!--begin::Global Stylesheets Bundle(used by all pages)-->
-    <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/css/style.bundle.css')}}" rel="stylesheet" type="text/css" />
     <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
     <!--end::Global Stylesheets Bundle-->
 </head>
@@ -1342,17 +1342,88 @@ License: For each use you must have a valid license purchased only from above li
                             <div class="menu menu-lg-rounded menu-column menu-lg-row menu-state-bg menu-title-gray-700 menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-400 fw-bold my-5 my-lg-0 align-items-stretch flex-grow-1"
                                 id="#kt_header_menu" data-kt-menu="true">
                                 <div data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start"
-                                    class="menu-item menu-lg-down-accordion me-lg-1">
+                                    class="menu-item here show menu-lg-down-accordion me-lg-1">
                                     <span class="menu-link py-3">
-                                        <a href="{{ route('dashboard')}}" class="menu-title">Dashboards</a>
+                                        <span class="menu-title">Dashboards</span>
                                         <span class="menu-arrow d-lg-none"></span>
                                     </span>
-                                    
+                                    <div
+                                        class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-225px">
+                                        <div class="menu-item">
+                                            <a class="menu-link py-3" href="../../demo11/dist/index.html">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Multipurpose</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-item">
+                                            <a class="menu-link active py-3"
+                                                href="../../demo11/dist/dashboards/ecommerce.html">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">eCommerce</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-item">
+                                            <a class="menu-link py-3"
+                                                href="../../demo11/dist/dashboards/store-analytics.html">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Store Analytics</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-item">
+                                            <a class="menu-link py-3"
+                                                href="../../demo11/dist/dashboards/logistics.html">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Logistics</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-item">
+                                            <a class="menu-link py-3"
+                                                href="../../demo11/dist/dashboards/delivery.html">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Delivery</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-item">
+                                            <a class="menu-link py-3"
+                                                href="../../demo11/dist/dashboards/marketing.html">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Marketing</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-item">
+                                            <a class="menu-link py-3" href="../../demo11/dist/dashboards/social.html">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Social</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-item">
+                                            <a class="menu-link py-3" href="../../demo11/dist/landing.html">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Landing</span>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start"
                                     class="menu-item menu-lg-down-accordion me-lg-1">
                                     <span class="menu-link py-3">
-                                        <a href="{{ route('user')}}" class="menu-title">User</a>
+                                        <span class="menu-title">Admin</span>
                                         <span class="menu-arrow d-lg-none"></span>
                                     </span>
                                     <div
@@ -2350,7 +2421,7 @@ License: For each use you must have a valid license purchased only from above li
                                 <div data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start"
                                     class="menu-item menu-lg-down-accordion me-lg-1">
                                     <span class="menu-link py-3">
-                                        <a href="{{ route('member.index')}}" class="menu-title">Members</a>
+                                        <span class="menu-title">Members</span>
                                         <span class="menu-arrow d-lg-none"></span>
                                     </span>
                                     <div
@@ -2480,73 +2551,89 @@ License: For each use you must have a valid license purchased only from above li
                 </div>
                 <!--end::Page title-->
                 <div class="container">
-                    <div class="row">
-                        <div class="col text-end">
-                            <a href="{{ route('member.create') }}" class="btn btn-danger">Tambah Data</a>
+					<form action="{{ route('member.update', $data->id )}}" method="post">
+						@csrf
+                        @method('put')
+						<div class="mb-10">
+							<label for="exampleFormControlInput1" class="required form-label">Name</label>
+							<input name="name" value="{{$data->name}}" type="text" class="form-control form-control-solid" placeholder="Example input"/>
+						</div>
+						<div class="mb-10">
+							<label for="exampleFormControlInput1" class="required form-label">Description</label>
+							<input name="description" value="{{$data->description}}" type="text" class="form-control form-control-solid" placeholder="Example input"/>
+						</div>
+						<div class="mb-10">
+							<label for="exampleFormControlInput1" class="required form-label">Address</label>
+							<input name="address" value="{{$data->address}}" type="text" class="form-control form-control-solid" placeholder="Example input"/>
+						</div>
+						<div class="mb-10">
+							<label for="exampleFormControlInput1" class="required form-label">Place Name</label>
+							<input name="place_name" value="{{$data->place_name}}" type="text" class="form-control form-control-solid" placeholder="Example input"/>
+						</div>
+						<div class="mb-10">
+							<label for="exampleFormControlInput1" class="required form-label">Region</label>
+							<input name="region" value="{{$data->region}}" type="text" class="form-control form-control-solid" placeholder="Example input"/>
+						</div>
+						<div class="mb-10">
+							<label for="exampleFormControlInput1" class="required form-label">Postal Code</label>
+							<input name="postal_code" value="{{$data->postal_code}}" type="number" class="form-control form-control-solid" placeholder="Example input"/>
+						</div>
+						<div class="mb-10">
+							<label for="exampleFormControlInput1" class="required form-label">Latitude</label>
+							<input name="latitude" value="{{$data->latitude}}" type="text" class="form-control form-control-solid" placeholder="Example input"/>
+						</div>
+						<div class="mb-10">
+							<label for="exampleFormControlInput1" class="required form-label">Longtitude</label>
+							<input name="longtitude" value="{{$data->longtitude}}" type="text" class="form-control form-control-solid" placeholder="Example input"/>
+						</div>
+						<div class="mb-10">
+							<label for="exampleFormControlInput1" class="required form-label">Email</label>
+							<input name="email" value="{{$data->email}}" type="email" class="form-control form-control-solid" placeholder="Example input"/>
+						</div>
+						<div class="mb-10">
+							<label for="exampleFormControlInput1" class="required form-label">Phone</label>
+							<input name="phone" value="{{$data->phone}}" type="text" class="form-control form-control-solid" placeholder="Example input"/>
+						</div>
+						<div class="mb-10">
+							<label for="exampleFormControlInput1" class="required form-label">Phone Mobile</label>
+							<input name="phone_mobile" value="{{$data->phone_mobile}}" type="text" class="form-control form-control-solid" placeholder="Example input"/>
+						</div>
+						<div class="mb-10">
+							<label for="exampleFormControlInput1" class="required form-label">Leader Name</label>
+							<input name="leader_name" value="{{$data->leader_name}}" type="text" class="form-control form-control-solid" placeholder="Example input"/>
+						</div>
+						<div class="mb-10">
+							<label for="exampleFormControlInput1" class="required form-label">Children Count</label>
+							<input name="children_count" value="{{$data->children_count}}" type="number" class="form-control form-control-solid" placeholder="Example input"/>
+						</div>
+						<div class="mb-10">
+							<label for="exampleFormControlInput1" class="required form-label">Worker Count</label>
+							<input name="worker_count" value="{{$data->worker_count}}" type="number" class="form-control form-control-solid" placeholder="Example input"/>
+						</div>
+						<div class="mb-10">
+							<label for="exampleFormControlInput1" class="required form-label">Like Count</label>
+							<input name="like_count" value="{{$data->like_count}}" type="number" class="form-control form-control-solid" placeholder="Example input"/>
+						</div>
+						<div class="mb-10">
+							<label for="exampleFormControlInput1" class="required form-label">Share Count</label>
+							<input name="share_count" value="{{$data->share_count}}" type="number" class="form-control form-control-solid" placeholder="Example input"/>
+						</div>
+						<div class="mb-10">
+							<label for="exampleFormControlInput1" class="required form-label">View Count</label>
+							<input name="view_count" value="{{$data->view_count}}" type="number" class="form-control form-control-solid" placeholder="Example input"/>
+						</div>
+						<div class="mb-10">
+							<label for="exampleFormControlInput1" class="required form-label">Bookmark Count</label>
+							<input name="bookmark_count" value="{{$data->bookmark_count}}" type="number" class="form-control form-control-solid" placeholder="Example input"/>
+						</div>
+						<div class="mb-10">
+							<label for="exampleFormControlInput1" class="required form-label">Donate Count</label>
+							<input name="donate_count" value="{{$data->donate_count}}" type="number" class="form-control form-control-solid" placeholder="Example input"/>
+						</div>
+						<div class="col text-end">
+                            <button type="submit" class="btn btn-danger">Submit</button>
                         </div>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr class="fw-bold fs-6 text-gray-800">
-                                    <th>Name</th>
-                                    <th>Address</th>
-                                    <th>Place Name</th>
-                                    <th>Region</th>
-                                    <th>Postal Code</th>
-                                    <th>Latitude</th>
-                                    <th>Longtitude</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>Phone Mobile</th>
-                                    <th>Leader Name</th>
-                                    <th>Children Count</th>
-                                    <th>Worker Count</th>
-                                    <th>Like Count</th>
-                                    <th>share Count</th>
-                                    <th>View Count</th>
-                                    <th>Bookmark Count</th>
-                                    <th>Donate Count</th>
-                                    <th>active</th>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($data as $item)
-                                    <tr>
-                                        <td>{{ $item->name }}</td>
-                                        <td>{{ $item->address }}</td>
-                                        <td>{{ $item->place_name }}</td>
-                                        <td>{{ $item->region }}</td>
-                                        <td>{{ $item->postal_code }}</td>
-                                        <td>{{ $item->latitude }}</td>
-                                        <td>{{ $item->longtitude }}</td>
-                                        <td>{{ $item->email }}</td>
-                                        <td>{{ $item->phone }}</td>
-                                        <td>{{ $item->phone_mobile }}</td>
-                                        <td>{{ $item->leader_name }}</td>
-                                        <td>{{ $item->children_count }}</td>
-                                        <td>{{ $item->worker_count }}</td>
-                                        <td>{{ $item->like_count }}</td>
-                                        <td>{{ $item->share_count }}</td>
-                                        <td>{{ $item->view_count }}</td>
-                                        <td>{{ $item->bookmark_count }}</td>
-                                        <td>{{ $item->donate_count }}</td>
-                                        <td>{{ $item->is_active }}</td>
-                                        <td><a href="{{ route('member.edit',$item->id)}}" class="btn btn-primary ">edit</a></td>
-                                        <td><form action="{{ route('member.destroy',$item->id)}}" method="POST">
-                                            @method('delete')
-                                            @csrf
-                                            <button class="btn btn-danger" type="submit">delete</button>
-                                        </form></td>
-                                        
-                                    </tr>
-                                @endforeach
-
-                            </tbody>
-                        </table>
-                    </div>
+					</form>
                 </div>
             </div>
         </div>
