@@ -117,7 +117,19 @@ class MemberController extends Controller
     public function destroy($id)
     {
         $data = Member::where('id', $id)->delete();
-        return back();
+        
+        if ($data == 1) {
+            $success = true;
+            $message = "User deleted successfully";
+        } else {
+            $success = true;
+            $message = "User not found";
+        }
+
+        return response()->json([
+            'success' => $success,
+            'message' => $message,
+        ]);
     }
 
 }

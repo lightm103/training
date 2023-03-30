@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DataTableController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
@@ -33,6 +34,7 @@ Route::put('/update/{id}',[UserController::class,'update'])->name('update');
 Route::post('authentication',[LoginController::class,'authentication'])->name('authentication');
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 Route::get('/ongkir',[RajaongkirController::class,'index'])->name('ongkir');
+Route::get('/table',[DataTableController::class,'index'])->name('table');
 
 // Dashboard
 Route::middleware('auth')->group(function(){

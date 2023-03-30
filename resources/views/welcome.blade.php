@@ -114,8 +114,8 @@
                 <a href="#" id="top-search-trigger"><i class="icon-line-search"></i><i class="icon-line-cross"></i></a>
               </div><!-- #top-search end -->
 
-              <a href="demo-seo-about.html" class="button button-rounded ms-3 d-none d-sm-block">
-				<div class="{{ route('register')}}"> Sekarang
+              <a href="{{ route('register')}}" class="button button-rounded ms-3 d-none d-sm-block">
+				<div> Daftar
 				</div>
 				</a>
 
@@ -138,11 +138,11 @@
             <nav class="primary-menu with-arrows">
 
               <ul class="menu-container">
-                <li class="menu-item current"><a class="menu-link" href="demo-seo.html">
+                <li class="menu-item current"><a class="menu-link" href="#">
                     <div>Home</div>
                   </a></li>
-                <li class="menu-item"><a class="menu-link" href="https://alpha.tinggalbayar.id/login">
-                    <div class="{{ route('login')}}">Login</div>
+                <li class="menu-item"><a class="menu-link" href="{{ route('login')}}">
+                    <div class="">Login</div>
                   </a></li>
               </ul>
 
@@ -170,7 +170,7 @@
             <div class="row">
               <div class="col">
                 <div class="text-center">
-                  <h2 style="color: #FFF;">Tingkatkan penjualan dengan manajemen order yang serba otomatis.</h2>
+                  <h2 style="color: #FFF;">Tingkatkan penjualan <br>dengan manajemen order <br>yang serba otomatis.</h2>
                 </div>
               </div>
               <img src="" alt="">
@@ -208,13 +208,13 @@
                   <div class="col-4">
                     <h3 class="mt-3">
                       <img src="{{asset('aset/inventory-2-o481zd9mk2ivs10ift41qv7opqng5pfbod1rud7b6g.png')}}" alt="">
-                      <p>Fitur 1</p>
+                      <p>Fitur 2</p>
                     </h3>
                   </div>
                   <div class="col-4">
                     <h3 class="mt-3">
                       <img src="{{asset('aset/inventory-2-o481zd9mk2ivs10ift41qv7opqng5pfbod1rud7b6g.png')}}" alt="">
-                      <p>Fitur 1</p>
+                      <p>Fitur 3</p>
                     </h3>
                   </div>
                 </div>
@@ -222,19 +222,19 @@
                   <div class="col-4">
                     <h3 class="mt-3">
                       <img src="{{asset('aset/inventory-2-o481zd9mk2ivs10ift41qv7opqng5pfbod1rud7b6g.png')}}" alt="">
-                      <p>Fitur 1</p>
+                      <p>Fitur 4</p>
                     </h3>
                   </div>
                   <div class="col-4">
                     <h3 class="mt-3">
                       <img src="{{asset('aset/inventory-2-o481zd9mk2ivs10ift41qv7opqng5pfbod1rud7b6g.png')}}" alt="">
-                      <p>Fitur 1</p>
+                      <p>Fitur 5</p>
                     </h3>
                   </div>
                   <div class="col-4">
                     <h3 class="mt-3">
                       <img src="{{asset('aset/inventory-2-o481zd9mk2ivs10ift41qv7opqng5pfbod1rud7b6g.png')}}" alt="">
-                      <p>Fitur 1</p>
+                      <p>Fitur 6</p>
                     </h3>
                   </div>
                 </div>

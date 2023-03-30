@@ -2483,6 +2483,7 @@ License: For each use you must have a valid license purchased only from above li
                     <div class="row">
                         <a href="{{ route('logout')}}">Log Out</a>
                         <a href="{{ route('add')}}">Tambah User</a>
+                        <a href="{{ route('table')}}">tambah admin</a>
                     </div>
                 </div>
                 <div class="container mt-5">
